@@ -79,6 +79,7 @@ mqtt.on('connect', () => {
     log.info('mqtt connected', config.mqttUrl);
     mqtt.publish(config.prefix + '/online', true, {retain: true});
 
+    publishVolume();
     polling.start(config.pollingInterval);
 });
 
@@ -95,10 +96,7 @@ mqtt.on('error', error => {
 });
 
 alsaMonitor.volume.on('change', () => {
-    const volume = alsaVolume.getVolume(config.alsaCard, config.alsaMixer);
-
-    log.debug('alsa <', volume);
-    mqtt.publish(config.prefix + '/status/volume', volume);
+    publishVolume();
 });
 
 mqtt.subscribe(config.prefix + '/set/volume', (_, payload) => {
@@ -120,4 +118,11 @@ mqtt.subscribe(config.prefix + '/set/volume', (_, payload) => {
 function setVolume(volume) {
     log.debug('alsa >', volume);
     alsaVolume.setVolume(config.alsaCard, config.alsaMixer, volume);
+}
+
+function publishVolume() {
+    const volume = alsaVolume.getVolume(config.alsaCard, config.alsaMixer);
+
+    log.debug('alsa <', volume);
+    mqtt.publish(config.prefix + '/status/volume', volume, {retain: true});
 }
