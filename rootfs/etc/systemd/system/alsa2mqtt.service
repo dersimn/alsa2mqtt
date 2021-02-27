@@ -1,9 +1,11 @@
 [Unit]
 Description=Publish ALSA status to MQTT
+After=sound.target
 After=network-online.target
 
 [Service]
-ExecStart=/bin/bash /usr/local/bin/alsa2mqtt.bash
+WorkingDirectory=/opt/alsa2mqtt
+ExecStart=/usr/bin/node index -u mqtt://10.1.1.100 --alsa-mixer Line
 
 [Install]
 WantedBy=default.target
