@@ -17,6 +17,34 @@
   },
   "homepage": "https://github.com/dersimn/alsa2mqtt#readme",
   "dependencies": {
-    "alsa-monitor": "git+https://github.com/mlaurijsse/alsa-monitor-node.git"
+    "alsa-monitor": "git+https://github.com/mlaurijsse/alsa-monitor-node.git",
+    "alsa-volume": "git+https://github.com/dersimn/node-alsa-volume.git",
+    "mqtt-smarthome-connect": "^0.0.8",
+    "yalm": "^4.1.0",
+    "yargs": "^16.2.0",
+    "yetanothertimerlibrary": "^3.2.0"
+  },
+  "devDependencies": {
+    "xo": "^0.38.1"
+  },
+  "xo": {
+    "space": 4,
+    "rules": {
+      "capitalized-comments": "warn",
+      "unicorn/no-reduce": "warn",
+      "no-await-in-loop": "warn",
+      "curly": ["error", "multi-line"],
+      "unicorn/prevent-abbreviations": [
+        "error",
+        {
+          "whitelist": {
+            "pkg": true,
+            "tmp": true,
+            "obj": true,
+            "args": true
+          }
+        }
+      ]
+    }
   }
 }
