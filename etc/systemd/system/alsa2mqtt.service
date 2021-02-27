@@ -1,0 +1,9 @@
+[Unit]
+Description=Publish ALSA status to MQTT
+After=network-online.target
+
+[Service]
+ExecStart=/bin/bash /usr/local/bin/alsa2mqtt.bash
+
+[Install]
+WantedBy=default.target
