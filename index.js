@@ -17,7 +17,9 @@ const config = require('yargs')
     .alias({
         h: 'help',
         v: 'verbosity',
-        u: 'mqtt-url'
+        u: 'mqtt-url',
+        m: 'alsa-mixer',
+        s: 'alsa-status-file'
     })
     .default({
         prefix: 'dersimn/SoundPi',
