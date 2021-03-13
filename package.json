@@ -18,7 +18,7 @@
   "homepage": "https://github.com/dersimn/alsa2mqtt#readme",
   "dependencies": {
     "alsa-monitor": "git+https://github.com/mlaurijsse/alsa-monitor-node.git",
-    "alsa-volume": "git+https://github.com/dersimn/node-alsa-volume.git",
+    "alsa-volume": "^0.0.2",
     "mqtt-smarthome-connect": "^0.0.8",
     "yalm": "^4.1.0",
     "yargs": "^16.2.0",
