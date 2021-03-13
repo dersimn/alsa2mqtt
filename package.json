@@ -1,6 +1,6 @@
 {
   "name": "alsa2mqtt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Control ALSA volume from MQTT",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,10 @@
       "capitalized-comments": "warn",
       "unicorn/no-reduce": "warn",
       "no-await-in-loop": "warn",
-      "curly": ["error", "multi-line"],
+      "curly": [
+        "error",
+        "multi-line"
+      ],
       "unicorn/prevent-abbreviations": [
         "error",
         {
