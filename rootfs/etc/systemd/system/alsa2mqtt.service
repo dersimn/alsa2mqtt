@@ -6,6 +6,8 @@ After=network-online.target
 [Service]
 WorkingDirectory=/opt/alsa2mqtt
 ExecStart=/usr/bin/node index -u mqtt://10.1.1.100 --alsa-mixer Line
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=default.target
